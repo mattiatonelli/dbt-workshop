@@ -4,6 +4,8 @@ As we continue our journey through the **FAIR Kingdom**, it turns out our missin
 
 You see, our top 3 citizens by number of quests are **now discoverable** in the query, but there’s a **problem**: we have no idea **how to find** this information again later. The query is great and all, but without proper **documentation** and **tags**, it’s like finding a treasure chest but forgetting where you buried it! 🏴‍☠️
 
+## 🎯 Your Quest:
+
 Your task is to **make this query FINDABLE**, just like the **Golden Dragon Coin** hidden in the kingdom! 🪙
 
 Here’s what needs to be done:
