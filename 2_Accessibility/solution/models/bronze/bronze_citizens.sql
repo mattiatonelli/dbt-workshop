@@ -4,5 +4,5 @@ select
     last_name,
     race,
     date_of_birth,
-    height_feet
+    height_centimeters
 from dbt_mtonelli.raw_citizens -- remember to change to your schema

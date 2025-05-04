@@ -3,10 +3,10 @@ select
     cq.first_name,
     cq.last_name,
     cq.date_of_birth,
-    cq.height_feet as height_cm,
+    cq.height_centimeters,
     cq.total_quests,
     mw.most_used_item,
-    mw.most_used_item_length as most_used_item_length_cm
+    mw.most_used_item_length_centimeters
 
 from dbt_mtonelli.silver_citizens cq -- remember to change to your schema
 left join dbt_mtonelli.silver_quests mw -- remember to change to your schema

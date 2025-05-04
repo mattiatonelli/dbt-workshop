@@ -12,11 +12,11 @@ models:
         description: Last name of the citizen
       - name: date_of_birth
         description: Date of birth of the citizen
-      - name: height_feet
-        description: Height of the citizen in feet
+      - name: height_centimeters
+        description: Height of the citizen in centimeters
       - name: total_quests
         description: Total number of quests completed
       - name: most_used_item
         description: Most used item by the citizen
-      - name: most_used_item_length
+      - name: most_used_item_length_centimeters
         description: Length of the most used item in inches

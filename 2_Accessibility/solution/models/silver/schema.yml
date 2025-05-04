@@ -12,8 +12,8 @@ models:
         description: Last name of the citizen
       - name: date_of_birth
         description: Date of birth of the citizen
-      - name: height_feet
-        description: Height in feet
+      - name: height_centimeters
+        description: Height in centimeters
       - name: total_quests
         description: Total number of quests completed by the citizen
 
