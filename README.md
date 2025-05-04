@@ -28,7 +28,7 @@ with citizen_quests as (
         c.first_name,
         c.last_name,
         c.date_of_birth,
-        c.height_feet,
+        c.height_centimeters,
         count(q.quest_id) as total_quests
 
     from dbtworkshop.dbt_mtonelli.raw_citizens c
@@ -38,7 +38,7 @@ with citizen_quests as (
             c.citizen_id = q.citizen_id
 
     group by
-        c.citizen_id, c.first_name, c.last_name, c.date_of_birth, c.height_feet
+        c.citizen_id, c.first_name, c.last_name, c.date_of_birth, c.height_centimeters
 ),
 
 citizen_items as (
@@ -46,7 +46,7 @@ citizen_items as (
     select
         c.citizen_id,
         i.item_name,
-        i.length_inches,
+        i.length_centimeters,
         count(i.item_name) as item_count
 
     from dbtworkshop.dbt_mtonelli.raw_citizens c
@@ -55,23 +55,23 @@ citizen_items as (
         c.citizen_id = i.citizen_id
 
     group by
-        c.citizen_id, i.item_name, i.length_inches
+        c.citizen_id, i.item_name, i.length_centimeters
 ),
 
 most_used_item as (
     select
         citizen_id,
         item_name as most_used_item,
-        length_inches as most_used_item_length
+        length_centimeters as most_used_item_length
     from (
         select
             citizen_id,
             item_name,
-            length_inches,
+            length_centimeters,
             row_number() over (partition by citizen_id order by count(item_name) desc) as rank
         from citizen_items
         group by
-            citizen_id, item_name, length_inches
+            citizen_id, item_name, length_centimeters
     ) ranked
     where rank = 1
 ),
@@ -82,7 +82,7 @@ top_citizens as (
         cq.first_name,
         cq.last_name,
         cq.date_of_birth,
-        cq.height_feet AS height_cm,
+        cq.height_centimeters,
         cq.total_quests,
         mw.most_used_item,
         mw.most_used_item_length AS most_used_item_length_cm
