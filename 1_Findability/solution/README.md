@@ -2,7 +2,7 @@
 
 Here’s how you can solve the **Findable** part of our quest:
 
-1. **Create the `schema.yml` file** for the `top_citizens` model in the `models` folder:
+1. **Create the `schema.yml` file** for the `winners` model in the `models` folder:
 
 ```yaml
 version: 2
