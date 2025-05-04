@@ -22,7 +22,7 @@ models/
 
 This simple tree structure clearly shows the organization of your models across different stages: **bronze** for raw data, **silver** for transformed data, and **gold** for final, aggregated results. 🌟
 
-Remember to split the original full query into subqueries, each corresponding to its model. Also, you will need to create the new `schema.yml` file for the bronze and silver subfolders.
+Remember to split the original full query `winners.sql` into smaller subqueries, each corresponding to its specific model. Also, you will need to create the new `schema.yml` file for both the bronze and silver subfolders.
 
 ## 2. Define User Permissions And Use Views Where Needed
 
