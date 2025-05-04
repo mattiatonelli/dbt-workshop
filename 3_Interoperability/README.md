@@ -11,10 +11,10 @@ Luckily, there is an **official language** in the kingdom that everybody underst
 
 Your task is to **make our data INTEROPERABLE** — just like the Golden Dragon Coin that awaits the worthy adventurer! 🪙
 
-Here’s what needs to be done TO ensure all incoming data speaks the kingdom's language:
+Here’s what needs to be done to ensure all incoming data speaks the kingdom's language:
 
-- Standardize the data access to different tables/views.
-- Align the standards used across all the models.
-- Ensure the columns `citizen_id` and `quest_id` follow our kingdom's rules (no NULLs and uniqueness, of course).
+- **Standardize** the data access to different tables/views.
+- Align the **standards** used across all the models.
+- Ensure the column `citizen_id` **follows our kingdom's rules** (no NULLs and uniqueness, of course).
 
 By completing these steps, you’ll ensure that all different kingdom's inhabitants can **easily understand and employ** the data without the risk of misinterpretation. 🎉

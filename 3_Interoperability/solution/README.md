@@ -2,68 +2,71 @@
 
 ## 1. Use dbt Sources for Standardization
 
-Create a **source** in dbt for each of your data sources (e.g., `raw_citizens`, `raw_quests`, `raw_items`). This helps standardize the input data and enables easy reference across the project.
+Define your upstream raw tables as **sources** in a new `schema.yml` inside the a a new folder `models/raw/`. This helps standardize the input data and enables easy reference across the project.
 
 ```yaml
 version: 2
 
 sources:
-  - name: raw_citizens
-    schema: _raw
+  - name: raw
+    database: dbtworkshop
+    schema: dbt_mtonelli # <-- remember to change to the schema name where your raw data tables live
     tables:
-      - name: citizens
-        description: "Raw data of citizens in the kingdom"
-  - name: raw_quests
-    schema: _raw
-    tables:
-      - name: quests
-        description: "Raw data of quests undertaken by citizens"
-  - name: raw_items
-    schema: _raw
-    tables:
-      - name: items
-        description: "Raw data of magical items used in quests"
+      - name: raw_citizens
+      - name: raw_items
+      - name: raw_quests
 ```
 
-Then, reference these sources in your models:
+Then, reference these sources in your **bronze** models (`bronze_citizens`, `bronze_quests`, `bronze_items`). See examples below:
 
 ```sql
-WITH citizens AS (
-  SELECT * FROM {{ source('raw_citizens', 'citizens') }}
-)
+select
+    citizen_id,
+    first_name,
+    last_name,
+    race,
+    to_char(to_date(date_of_birth, 'DD/MM/YYYY'), 'YYYY-MM-DD') as date_of_birth,
+    round(height_centimeters * 30.48) as height_centimeters
+from {{ source('raw', 'raw_citizens') }}
 ```
 
 ## 2. Apply the ISO 8601 date format and metric system
 
-To standardize dates, use the ISO 8601 format (yyyy-mm-dd). Here’s how to transform raw date columns in your staging models:
+Standardize dates to the ISO 8601 format (yyyy-mm-dd) and convert measurements from feet to centimeters in the models contained in the `models/bronze/` folder. You can see the transformations in the above code snippet.
 
-## 3. Create dbt Tests for Commonly Tested Columns
+Then, to apply the changes run:
 
-Use dbt's built-in testing capabilities to make sure your data is clean and consistent:
+```bash
+dbt run --select bronze_citizens bronze_items bronze_quests silver_citizens silver_items silver_quests gold_metrics gold_winners
+```
 
-- Test for null values in essential columns (e.g., citizen_id, quest_id).
-- Test for uniqueness on columns that should be unique (e.g., citizen_id, quest_id).
+## 3. Add dbt Tests for Commonly Tested Columns
 
-In your `schema.yml`:
+Use **dbt's built-in tests** to validate data quality in your models. These include checks for:
+
+- **`not_null`**: Ensures critical fields are always populated.
+- **`unique`**: Confirms fields meant to be unique (like primary keys) have no duplicates.
+
+For example, update the `schema.yml` inside the `models/bronze/` folder as below:
 
 ```yaml
-version: 2
-
+---
 models:
-  - name: processed_citizens
-    description: "Processed data of citizens with consistent date format"
+  - name: bronze_citizens
+    description: Raw citizens data
     columns:
       - name: citizen_id
-        description: "Unique identifier for each citizen"
-        tests: # <--
-          - not_null # <--
-          - unique # <--
-      - name: first_name
-        description: "First name of the citizen"
-      - name: last_name
-        description: "Last name of the citizen"
-      - name: created_at
-        description: "Date the citizen record was created"
-        tests: # <--
-          - not_null # <--
+        description: Unique ID of the citizen
+        tests: # <-- add the below tests
+          - not_null
+          - unique
+---
 ```
+
+Then run:
+
+```bash
+dbt test
+```
+
+This command will execute all defined tests and report results.

@@ -1,0 +1,52 @@
+version: 2
+
+sources:
+  - name: raw
+    database: dbtworkshop
+    schema: dbt_mtonelli # <-- remember to change to the schema name where your raw data tables live
+    tables:
+      - name: raw_citizens
+        description: "Raw data of citizens in the kingdom"
+        columns:
+          - name: citizen_id
+            description: "Unique identifier for each citizen"
+          - name: first_name
+            description: "First name of the citizen"
+          - name: last_name
+            description: "Last name of the citizen"
+          - name: race
+            description: "Race of the citizen"
+          - name: date_of_birth
+            description: "Date of birth of the citizen"
+
+      - name: raw_items
+        description: "Raw data of magical items used in quests"
+        columns:
+          - name: item_id
+            description: "Unique identifier for each item"
+          - name: citizen_id
+            description: "Foreign key linking to the citizen"
+          - name: item_name
+            description: "Name of the magical item"
+          - name: item_type
+            description: "Type of the magical item"
+          - name: rarity
+            description: "Rarity of the item"
+          - name: height_centimeters
+            description: "Height of the item in centimeters"
+
+      - name: raw_quests
+        description: "Raw data of quests undertaken by citizens"
+        columns:
+          - name: quest_id
+            description: "Unique identifier for each quest"
+          - name: citizen_id
+            description: "Foreign key linking to the citizen"
+          - name: quest_name
+            description: "Name of the quest"
+          - name: reward
+            description: "Reward for completing the quest"
+          - name: status
+            description: "Status of the quest (completed, ongoing, etc.)"
+          - name: completion_date
+            description: "Date when the quest was completed"
