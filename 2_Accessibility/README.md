@@ -11,6 +11,6 @@ Even though the data is there, **nobody knows how to access it!** 🧹 The **Gol
 
 Thus, your task is to **open the Gates of ACCESSIBILITY**:
 
-- Make sure the models are well-organized, not lost in some **data dungeon**.
+- Make sure the models are well-organized, not lost in some **data maze**.
 - Define clear permissions: only the right heroes should touch the treasures!
 - Use **views** when useful to avoid making every knight in the kingdom burn their computing budgets just to **look at** the data.

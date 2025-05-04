@@ -7,4 +7,4 @@
   Use dbt’s built-in **grants** functionality to manage who has access to which tables/views — it's like giving certain adventurers a key to specific castle doors. 🗝️
 
 - **Hint #3**:  
-  Use `materialized='view'` where you don’t need heavy compute. Views are like magical mirrors: you can look, but not touch the gold. 🪞
+  Use `views` where you don’t need heavy compute. Views are like magical mirrors: you can look, but not touch the gold. 🪞

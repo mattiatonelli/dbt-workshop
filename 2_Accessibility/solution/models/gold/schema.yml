@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: gold_winners
+    description: Top 3 citizens ranked by quest completion
+    columns:
+      - name: citizen_id
+        description: Unique ID of the citizen
+      - name: first_name
+        description: First name of the citizen
+      - name: last_name
+        description: Last name of the citizen
+      - name: date_of_birth
+        description: Date of birth of the citizen
+      - name: height_feet
+        description: Height of the citizen in feet
+      - name: total_quests
+        description: Total number of quests completed
+      - name: most_used_item
+        description: Most used item by the citizen
+      - name: most_used_item_length
+        description: Length of the most used item in inches

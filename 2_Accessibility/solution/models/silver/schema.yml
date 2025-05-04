@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: silver_citizens
+    description: Citizens with aggregated quest data
+    columns:
+      - name: citizen_id
+        description: Unique ID of the citizen
+      - name: first_name
+        description: First name of the citizen
+      - name: last_name
+        description: Last name of the citizen
+      - name: date_of_birth
+        description: Date of birth of the citizen
+      - name: height_feet
+        description: Height in feet
+      - name: total_quests
+        description: Total number of quests completed by the citizen
+
+  - name: silver_quests
+    description: Most frequently used item per citizen
+    columns:
+      - name: citizen_id
+        description: Unique ID of the citizen
+      - name: most_used_item
+        description: Name of the most used item
+      - name: most_used_item_length
+        description: Length of the most used item in inches
