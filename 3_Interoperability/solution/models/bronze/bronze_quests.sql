@@ -6,4 +6,4 @@ SELECT
     status,
     TO_CHAR(TO_DATE(completion_date, 'DD/MM/YYYY'), 'YYYY-MM-DD')       AS 'completion_date'
 
-FROM {{ source('raw', 'raw_quests') }};
+FROM {{ source('raw', 'raw_quests') }}
