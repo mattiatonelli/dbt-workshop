@@ -4,7 +4,7 @@ Here’s how you can solve the **Findable** part of our quest:
 
 ## 1. Include the Metadata File
 
-Create the `schema.yml` file for the `winners` model in the `models` folder:
+Create the `schema.yml` file for the `winners.sql` model in the `models` folder:
 
 ```yaml
 version: 2
@@ -53,4 +53,4 @@ This will spin up a local web server where you can view the documentation for yo
 
 ## 3. Test the Findability
 
-Try to search for the model and its columns by using the search bar. Can you easily find the `top_citizens` model? If so, the kingdom is now ready to easily discover it! 🔍
+Try to search for the model and its columns by using the search bar. Can you easily find the `winners` model? If so, the kingdom is now ready to easily discover it! 🔍

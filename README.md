@@ -112,5 +112,5 @@ citizens_winners AS (
         cq.total_quests DESC
 )
 
-SELECT * FROM citizens_winners;
+SELECT * FROM citizens_winners
 ```
