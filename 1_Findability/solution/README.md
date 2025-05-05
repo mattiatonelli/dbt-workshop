@@ -2,7 +2,9 @@
 
 Here’s how you can solve the **Findable** part of our quest:
 
-1. **Create the `schema.yml` file** for the `top_citizens` model in the `models` folder:
+## 1. Include the Metadata File
+
+Create the `schema.yml` file for the `winners` model in the `models` folder:
 
 ```yaml
 version: 2
@@ -35,7 +37,7 @@ models:
         description: "The length of the most used weapon in centimeters."
 ```
 
-2. Run dbt Docs to Generate Documentation
+## 2. Run dbt Docs to Generate Documentation
 
 In the command line, run:
 
@@ -49,6 +51,6 @@ And then click on the document button as shown below:
 
 This will spin up a local web server where you can view the documentation for your project. It will allow you to see your models, tags, columns, and their descriptions. 📜
 
-3. Test the Findability
+## 3. Test the Findability
 
 Try to search for the model and its columns by using the search bar. Can you easily find the `top_citizens` model? If so, the kingdom is now ready to easily discover it! 🔍
