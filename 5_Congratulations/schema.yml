@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: gold_winners
+    description: Top 3 citizens ranked by quest completion
+    config:
+      meta:
+        contributors:
+          - "<enter_your_name>" # <-- etch your name here for eternity
+          - "Percival the Analyst"
+      tags:
+        - "prize"
+        - "citizens"
+        - "quests"
+        - "items"
+    columns:
+      - name: citizen_id
+        description: "The unique identifier for each citizen."
+      - name: first_name
+        description: "The first name of the citizen."
+      - name: last_name
+        description: "The last name of the citizen."
+      - name: date_of_birth
+        description: "The date of birth of the citizen in ISO format."
+      - name: height_cm
+        description: "The height of the citizen in centimeters."
+      - name: total_quests
+        description: "The total number of quests the citizen has completed."
+      - name: most_used_item
+        description: "The item that the citizen used most frequently in their quests."
+      - name: most_used_item_length_cm
+        description: "The length of the most used weapon in centimeters."
