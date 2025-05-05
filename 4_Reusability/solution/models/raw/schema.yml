@@ -1,5 +1,5 @@
 version: 2
-# TODO: add a column in raw tables named 'upload_timestamp' to save as timestamp
+
 sources:
   - name: raw
     database: dbtworkshop
