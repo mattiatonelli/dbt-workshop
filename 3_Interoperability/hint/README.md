@@ -1,4 +1,6 @@
-## 🤔 **Need Some Guidance?**
+# 🤔 **Need Some Guidance?**
+
+If you're feeling lost in the **Interoperability Trials**, here are some hints to help you:
 
 - **Hint #1**:  
   Use **dbt sources** to standardize your data coming from multiple realms (a.k.a. tables). This ensures that all your raw data is treated with respect and aligns with the kingdom's standards. 📜

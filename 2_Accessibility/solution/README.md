@@ -51,7 +51,7 @@ models:
 
 Using `grants` allows specific users to query information across all model layers, while preventing unauthorized users to access them. Using `materialized: view` attribute for the gold layer, enables to create views that are lightweight, quick to build, and ideal for sharing without blowing up compute budgets. 💨
 
-## 4. Build Models in Order
+## 3. Build Models in Order
 
 To ensure the models are built in the correct order, you can run them using the following `dbt run` command with the following flag:
 
