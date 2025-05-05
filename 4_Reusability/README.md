@@ -1,17 +1,19 @@
-# 🏰 **R - The Code Refactor Quest**
+# 🏰 FAIR R — The Code Refactor Quest
 
-You’ve successfully made your data interoperable, ensuring that no matter their origin, every kingdom's citizen will be able to easily read and utilize the source data. 🏆
+Victory is near! Your efforts have made the kingdom’s data **findable**, **accessible**, and **interoperable**. 🏆 And now… a new message appears.
 
-But, it seems our mighty analyst, Percival, has left another trail of breadcrumbs! While we were able to track down **Percival’s missing data**, we’ve run into a new problem. 😱 **The code is messy**. We've got **repetitive logic** everywhere, and a few more issues that need to be tackled in order to make the kingdom’s data more **maintainable** and **robust**.
+Buried inside an old macro, you find a **cryptic note** from Percival himself:
 
-Let’s face it—**copy-pasting** code is not the way to create a **sustainable future** for the kingdom. The **citizens' data** and **quests** have to be structured more efficiently, **cleaned up**, and **tested** before we proceed with new heroic tasks!
+> “Too many duplicates. Too many conversions. If anyone finds this, don’t repeat my mistakes... and stop repeating your logic!”
+
+Suddenly, the truth is clear: Percival didn’t vanish—he went underground to refactor the kingdom’s entire data stack. But he left behind a final test to determine who is worthy to carry on his mission. The kingdom’s future rests on your ability to clean up his messy trail. 🧹
 
 ## 🎯 Your Quest:
 
-Here’s what needs to be done:
+Your task is to bring **REUSABILITY** to the kingdom and finally finish what Percival started:
 
-- **Refactor repetitive logic** by using `ref()` for **all tables**.
-- **Consolidate** the logic for handling **dates** into a reusable dbt model or macro.
-- **Implement source freshness tests** to ensure the data is up to date.
+- 🧩 Simplify calling tables across models.
+- 🌀 Extract **repetitive date transformation logic** into a macro.
+- ⏱️ Implement tests to ensure the data doesn’t get stale.
 
-Let’s make sure we keep our code DRY (Don’t Repeat Yourself) and our data fresh like the morning dew! 🍃💎
+Let’s write once, reuse everywhere, and ensure our data is always fresh like the mountain air of Mount Refactor! When this quest is complete, you may just uncover Percival’s final location... 🧙‍♂️📍

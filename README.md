@@ -1,24 +1,29 @@
 # 🏰 The Mystery of the Missing Analyst in the FAIR Kingdom! 🧙‍♂️
 
-Once upon a time in the **FAIR Kingdom**, we had a brilliant data analyst by the name of **Percival the Query Whisperer**. He could summon the most complex SQL spells and weave data into elegant answers faster than you could say **"SELECT \* FROM"**. 🧑‍💻✨
+Once upon a time in the **FAIR Kingdom**, there lived a legendary analyst named **Percival the Query Whisperer**. With a single line of SQL, he could tame wild datasets, unlock ancient joins, and summon insights from the deepest data lakes. 🧑‍💻✨
 
-For weeks, Percival had been working diligently on our latest quest: finding the **top 3 citizens by number of quests completed**. As a reward, the **top citizens** were to be **awarded a special prize**: a **Golden Dragon Coin** 🪙 (only given to those truly worthy). It was going to be the **honor of a lifetime** for the three adventurers who topped the leaderboard. 🎖️
+Percival had been working on his greatest masterpiece yet: a query to uncover the **top 3 citizens by number of quests completed**—so they could be honored with the sacred **Golden Dragon Coin** 🪙, the kingdom’s highest prize for valor and data excellence. 🎖️
 
-And then... **Percival went missing**. 😱 One day, he was sitting at his desk, typing away at his computer with a mug of hot cocoa, muttering something about “optimizing queries” and “removing unnecessary joins.” The next day, his desk was empty. No mug, no computer—just a single **document** named the **Holy Grail of Data Management: FAIR** 🌲.
+But just as the final touches were being added… **Percival vanished.** 😱
 
-Rumor has it that Percival was last seen **entering a tavern called "The Unoptimized Query"**, and since then, no one’s heard from him. 🕵️‍♂️
+One moment, he was sipping cocoa and muttering about “window functions” and “removing unnecessary CTEs.” The next, his desk sat empty. No mug. No laptop. Just a single parchment left behind:
+**“The Holy Grail of Data Management: FAIR.”** 📜
 
-Now, here we are, holding the **query he left behind**. Yes, it gives us the **top 3 citizens** along with their **height** and **most used weapon**. **But...** we’re **not entirely sure** it’s correct. 🧐 The numbers look good, but something’s missing — maybe it's the magic of optimization? Or perhaps it’s a little too... **messy**?
+The only clue? A witness saw him heading into a tavern suspiciously named **“The Unoptimized Query.”** He never came out. 🕵️‍♂️
 
-The kingdom is eager to give out the **Golden Dragon Coins** to the top 3 adventurers, but we **dare not proceed** until we’re certain the data is **FAIR**.
+Now, the query he left behind still runs... sort of. It gives the top 3 heroes, their **height**, and **most used weapon**. But it’s a bit... **wonky**. 😬
+Some say it lacks **standardization**. Others claim the **documentation is missing**. There are whispers of **stale data** and **copy-pasted code**...
 
-That’s where you come in! 🚀
+The **Golden Dragon Coins** cannot be handed out until we make this query truly **FAIR**:
+**Findable**, **Accessible**, **Interoperable**, and **Reusable**. ✨
 
-It’s time to **dust off the old queries**, use the **FAIR principles** (the secret document Percival left behind), and **enhance** this query to make sure the results are **findable, accessible, interoperable**, and **reusable** for future users! 🧙‍♀️
+That’s where **you** come in!
 
-Are you ready to venture through the **mystical land of data management** and become the hero who **rescues the query** and ensures the **Golden Dragon Coins** are truly earned? 🏆
+Armed with the sacred principles of FAIR and your legendary dbt skills, you must **enhance Percival’s query**, modernize his logic, and leave behind a cleaner, better data world. 🌍
 
-Now we can begin our quest to make the query **FAIR** for the kingdom. The first task awaits! ✨
+Will you complete all four quests, uncover the **truth behind Percival’s disappearance**, and restore balance to the data kingdom?
+
+The first task awaits... 🏁
 
 ```sql
 WITH citizen_quests AS (
@@ -29,7 +34,7 @@ WITH citizen_quests AS (
         c.last_name,
         c.date_of_birth,
         c.height_centimeters,
-        COUNT(q.quest_id)               AS 'total_quests'
+        COUNT(q.quest_id)               AS total_quests
 
     FROM dbtworkshop.dbt_mtonelli.raw_citizens AS c
 
@@ -67,8 +72,8 @@ citizen_items AS (
 most_used_item AS (
     SELECT
         citizen_id,
-        item_name                       AS 'most_used_item',
-        length_centimeters              AS 'most_used_item_length_cm'
+        item_name                       AS most_used_item,
+        length_centimeters              AS most_used_item_length_cm
 
     FROM (
         SELECT
