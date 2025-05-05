@@ -6,7 +6,7 @@ WITH citizen_quests AS (
         c.last_name,
         c.date_of_birth,
         c.height_centimeters,
-        COUNT(q.quest_id)               AS 'total_quests'
+        COUNT(q.quest_id)               AS total_quests
 
     FROM dbtworkshop.dbt_mtonelli.raw_citizens AS c
 
@@ -44,8 +44,8 @@ citizen_items AS (
 most_used_item AS (
     SELECT
         citizen_id,
-        item_name                       AS 'most_used_item',
-        length_centimeters              AS 'most_used_item_length_cm'
+        item_name                       AS most_used_item,
+        length_centimeters              AS most_used_item_length_cm
     FROM (
         SELECT
             citizen_id,
