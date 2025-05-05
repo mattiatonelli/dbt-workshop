@@ -21,63 +21,74 @@ Are you ready to venture through the **mystical land of data management** and be
 Now we can begin our quest to make the query **FAIR** for the kingdom. The first task awaits! ✨
 
 ```sql
-with citizen_quests as (
+WITH citizen_quests AS (
 
-    select
+    SELECT
         c.citizen_id,
         c.first_name,
         c.last_name,
         c.date_of_birth,
         c.height_centimeters,
-        count(q.quest_id) as total_quests
+        COUNT(q.quest_id)               AS 'total_quests'
 
-    from dbtworkshop.dbt_mtonelli.raw_citizens c
+    FROM dbtworkshop.dbt_mtonelli.raw_citizens AS c
 
-    left join
-        dbtworkshop.dbt_mtonelli.raw_quests q on
+    LEFT JOIN
+        dbtworkshop.dbt_mtonelli.raw_quests AS q ON
             c.citizen_id = q.citizen_id
 
-    group by
-        c.citizen_id, c.first_name, c.last_name, c.date_of_birth, c.height_centimeters
+    GROUP BY
+        c.citizen_id,
+        c.first_name,
+        c.last_name,
+        c.date_of_birth,
+        c.height_centimeters
 ),
 
-citizen_items as (
+citizen_items AS (
 
-    select
+    SELECT
         c.citizen_id,
         i.item_name,
         i.length_centimeters,
-        count(i.item_name) as item_count
+        COUNT(i.item_name) AS item_count
 
-    from dbtworkshop.dbt_mtonelli.raw_citizens c
+    FROM dbtworkshop.dbt_mtonelli.raw_citizens AS c
 
-    left join dbtworkshop.dbt_mtonelli.raw_items i on
+    LEFT JOIN dbtworkshop.dbt_mtonelli.raw_items AS i ON
         c.citizen_id = i.citizen_id
 
-    group by
-        c.citizen_id, i.item_name, i.length_centimeters
+    GROUP BY
+        c.citizen_id,
+        i.item_name,
+        i.length_centimeters
 ),
 
-most_used_item as (
-    select
+most_used_item AS (
+    SELECT
         citizen_id,
-        item_name as most_used_item,
-        length_centimeters as most_used_item_length
-    from (
-        select
+        item_name                       AS 'most_used_item',
+        length_centimeters              AS 'most_used_item_length_cm'
+
+    FROM (
+        SELECT
             citizen_id,
             item_name,
             length_centimeters,
-            row_number() over (partition by citizen_id order by count(item_name) desc) as rank
-        from citizen_items
-        group by
-            citizen_id, item_name, length_centimeters
-    ) ranked
-    where rank = 1
+            ROW_NUMBER() OVER (PARTITION BY citizen_id ORDER BY COUNT(item_name) DESC) AS rank
+
+        FROM citizen_items
+
+        GROUP BY
+            citizen_id,
+            item_name,
+            length_centimeters
+    ) AS ranked
+    WHERE rank = 1
 ),
 
-top_citizens as (
-    select
+citizens_winners AS (
+    SELECT
         cq.citizen_id,
         cq.first_name,
         cq.last_name,
@@ -85,18 +96,16 @@ top_citizens as (
         cq.height_centimeters,
         cq.total_quests,
         mw.most_used_item,
-        mw.most_used_item_length AS most_used_item_length_cm
+        mw.most_used_item_length_cm
 
-    from citizen_quests cq
+    FROM citizen_quests AS cq
 
-    left join most_used_item mw
-        on cq.citizen_id = mw.citizen_id
+    LEFT JOIN most_used_item AS mw
+        ON cq.citizen_id = mw.citizen_id
 
-    order by
-        cq.total_quests desc
+    ORDER BY
+        cq.total_quests DESC
 )
 
-select * from (
-    select * from top_citizens limit 3
-) as final_query
+SELECT * FROM citizens_winners;
 ```

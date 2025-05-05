@@ -1,4 +1,4 @@
-select
+SELECT
     cq.citizen_id,
     cq.first_name,
     cq.last_name,
@@ -8,7 +8,10 @@ select
     mw.most_used_item,
     mw.most_used_item_length_centimeters
 
-from dbt_mtonelli.silver_citizens cq -- remember to change to your schema
-left join dbt_mtonelli.silver_quests mw -- remember to change to your schema
-    on cq.citizen_id = mw.citizen_id
-order by cq.total_quests desc
+FROM dbt_mtonelli.silver_citizens AS cq -- remember to change to your schema
+
+LEFT JOIN dbt_mtonelli.silver_quests AS mw -- remember to change to your schema
+    ON cq.citizen_id = mw.citizen_id
+
+ORDER BY 
+    cq.total_quests DESC;
