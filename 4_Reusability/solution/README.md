@@ -14,7 +14,7 @@ There’s a lot of repeated logic around **date formatting** in our queries. Let
 
 ```sql
 {% macro format_date(date_column) %}
-    to_char(to_date({{ date_column }}, 'DD/MM/YYYY'), 'YYYY-MM-DD')
+    TO_CHAR(TO_DATE({{ date_column }}, 'DD/MM/YYYY'), 'YYYY-MM-DD')
 {% endmacro %}
 ```
 
@@ -65,6 +65,12 @@ sources:
 ```
 
 This will ensure that the kingdom’s data is up to date. If the data is stale, you will receive a **warning** or **error**, depending on how old it is. ⚠️
+
+Now to check the current freshness status, run:
+
+```bash
+dbt source freshness
+```
 
 ## 4. **Run the Final Pipeline**
 

@@ -16,6 +16,8 @@ models:
         description: Date of birth in string format
       - name: height_centimeters
         description: Height of the citizen in centimeters
+      - name: uploaded_timestamp
+        description: "Timestamp when the data was uploaded"
 
   - name: bronze_quests
     description: Raw quests data
@@ -32,6 +34,8 @@ models:
         description: Status of the quest (e.g., completed, failed)
       - name: completion_date
         description: Date the quest was completed
+      - name: uploaded_timestamp
+        description: "Timestamp when the data was uploaded"
 
   - name: bronze_items
     description: Raw items data
@@ -48,3 +52,5 @@ models:
         description: Rarity level of the item
       - name: length_centimeters
         description: Length of the item in centimeters
+      - name: uploaded_timestamp
+        description: "Timestamp when the data was uploaded"

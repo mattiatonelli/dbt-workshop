@@ -10,7 +10,7 @@ sources:
         freshness:
           warn_after: { count: 1, period: day }
           error_after: { count: 30, period: day }
-        loaded_at_field: upload_timestamp
+        loaded_at_field: uploaded_timestamp
         columns:
           - name: citizen_id
             description: "Unique identifier for each citizen"
@@ -22,13 +22,15 @@ sources:
             description: "Race of the citizen"
           - name: date_of_birth
             description: "Date of birth of the citizen"
+          - name: uploaded_timestamp
+            description: "Timestamp when the data was uploaded"
 
       - name: raw_items
         description: "Raw data of magical items used in quests"
         freshness:
           warn_after: { count: 1, period: day }
           error_after: { count: 30, period: day }
-        loaded_at_field: upload_timestamp
+        loaded_at_field: uploaded_timestamp
         columns:
           - name: item_id
             description: "Unique identifier for each item"
@@ -42,13 +44,15 @@ sources:
             description: "Rarity of the item"
           - name: height_centimeters
             description: "Height of the item in centimeters"
+          - name: uploaded_timestamp
+            description: "Timestamp when the data was uploaded"
 
       - name: raw_quests
         description: "Raw data of quests undertaken by citizens"
         freshness:
           warn_after: { count: 1, period: day }
           error_after: { count: 30, period: day }
-        loaded_at_field: upload_timestamp
+        loaded_at_field: uploaded_timestamp
         columns:
           - name: quest_id
             description: "Unique identifier for each quest"
@@ -62,3 +66,5 @@ sources:
             description: "Status of the quest (completed, ongoing, etc.)"
           - name: completion_date
             description: "Date when the quest was completed"
+          - name: uploaded_timestamp
+            description: "Timestamp when the data was uploaded"
