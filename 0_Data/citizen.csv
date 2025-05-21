@@ -1,4 +1,4 @@
-﻿citizen_id,first_name,last_name,race,date_of_birth,height_feet,uploaded_timestamp
+﻿citizen_id,first_name,last_name,race,date_of_birth,height_centimeters,uploaded_timestamp
 1,Merlin,Ambrosius,Wizard,07/08/1003,5.97,2025-05-05 14:30:00
 2,Lancelot,DuLac,Human,23/01/1132,6.1,2025-05-05 14:30:00
 3,Galadriel,Lorien,Elf,14/03/1045,6.2,2025-05-05 14:30:00

@@ -1,4 +1,4 @@
-﻿item_id,citizen_id,item_name,item_type,rarity,length_inches,uploaded_timestamp
+﻿item_id,citizen_id,item_name,item_type,rarity,length_centimeters,uploaded_timestamp
 201,1,Staff of Light,Weapon,Legendary,72,2025-05-05 14:30:00
 202,2,Shield of Valor,Armor,Epic,30,2025-05-05 14:30:00
 203,3,Ring of Secrets,Accessory,Legendary,1,2025-05-05 14:30:00
