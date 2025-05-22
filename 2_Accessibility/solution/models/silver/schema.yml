@@ -25,4 +25,4 @@ models:
       - name: most_used_item
         description: Name of the most used item
       - name: most_used_item_length
-        description: Length of the most used item in inches
+        description: Length of the most used item in centimeters

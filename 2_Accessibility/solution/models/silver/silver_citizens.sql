@@ -5,7 +5,7 @@ WITH citizen_quests AS (
         c.last_name,
         c.date_of_birth,
         c.height_centimeters,
-        COUNT(q.quest_id)                       AS 'total_quests'
+        COUNT(q.quest_id)                       AS total_quests
 
     FROM dbt_mtonelli.bronze_citizens AS c -- remember to change to your schema
     

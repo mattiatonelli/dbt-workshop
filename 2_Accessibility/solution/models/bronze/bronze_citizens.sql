@@ -6,4 +6,4 @@ SELECT
     date_of_birth,
     height_centimeters
 
-FROM dbt_mtonelli.raw_citizens -- remember to change to your schema
+FROM ws_ejvind.raw.citizens

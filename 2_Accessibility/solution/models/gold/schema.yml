@@ -2,13 +2,9 @@ version: 2
 
 models:
   - name: gold_winners
-    description: Top 3 citizens ranked by quest completion
+    description: "This model retrieves the top 3 citizens by number of quests completed, along with their height and the most used weapon."
     config:
-      tags:
-        - "prize"
-        - "citizens"
-        - "quests"
-        - "items"
+      tags: ["prize", "FAIR"]
     columns:
       - name: citizen_id
         description: "The unique identifier for each citizen."

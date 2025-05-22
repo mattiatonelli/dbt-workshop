@@ -20,16 +20,7 @@ models:
   dbt_workshop:
     bronze:
       +materialized: table
-      bronze_citizens:
-        +post-hook:
-          - "GRANT SELECT ON {{ this }} TO data_engineer_role;"
     silver:
       +materialized: table
-      # +grants:
-      #   select:
-      #     - data_analyst_role
     gold:
       +materialized: view # Materialized as views
-      # +grants:
-      #   select:
-      #     - data_scientist_role

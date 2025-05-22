@@ -3,7 +3,7 @@ WITH citizen_items AS (
         c.citizen_id,
         i.item_name,
         i.length_centimeters,
-        COUNT(i.item_name)                  AS 'item_count'
+        COUNT(i.item_name)                  AS item_count
 
     FROM dbt_mtonelli.bronze_citizens AS c -- remember to change to your schema
 
@@ -19,8 +19,8 @@ WITH citizen_items AS (
 most_used_item AS (
     SELECT
         citizen_id,
-        item_name                           AS 'most_used_item',
-        length_centimeters                  AS 'most_used_item_length_centimeters'
+        item_name                           AS most_used_item,
+        length_centimeters                  AS most_used_item_length_centimeters
     FROM (
         SELECT
             citizen_id,

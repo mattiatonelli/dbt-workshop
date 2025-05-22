@@ -6,4 +6,4 @@ SELECT
     status,
     completion_date
 
-FROM dbt_mtonelli.raw_quests -- remember to change to your schema
+FROM ws_ejvind.raw.quests

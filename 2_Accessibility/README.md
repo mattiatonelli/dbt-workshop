@@ -11,7 +11,6 @@ Unfortunately, although the models now exist, **no one can actually access them!
 It’s time to open the **Gates of ACCESSIBILITY**. Here’s what you must do:
 
 - 🗂️ Organize the models into meaningful folders and structure.
-- 🧙‍♂️ Set proper **access controls** — only the right heroes should touch the gold.
 - 🪞 Use **views** to ensure lightweight exploration of your data.
 
-Let’s make sure everyone only who needs data access in the kingdom actually **can** — without burning through their entire compute budget! 🧾🔥
+Let’s make sure who needs data access in the kingdom actually **can** do it — without burning through their entire compute budget! 🧾🔥
