@@ -8,10 +8,10 @@ WITH citizen_quests AS (
         c.height_centimeters,
         COUNT(q.quest_id)               AS total_quests
 
-    FROM dbtworkshop.dbt_mtonelli.raw_citizens AS c
+    FROM ws_ejvind.raw.citizens AS c
 
     LEFT JOIN
-        dbtworkshop.dbt_mtonelli.raw_quests AS q ON
+        ws_ejvind.raw.quests AS q ON
             c.citizen_id = q.citizen_id
 
     GROUP BY
@@ -30,9 +30,9 @@ citizen_items AS (
         i.length_centimeters,
         COUNT(i.item_name) AS item_count
 
-    FROM dbtworkshop.dbt_mtonelli.raw_citizens AS c
+    FROM ws_ejvind.raw.citizens AS c
 
-    LEFT JOIN dbtworkshop.dbt_mtonelli.raw_items AS i ON
+    LEFT JOIN ws_ejvind.raw.items AS i ON
         c.citizen_id = i.citizen_id
 
     GROUP BY

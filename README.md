@@ -23,7 +23,7 @@ Armed with the sacred principles of FAIR and your legendary dbt skills, you must
 
 Will you complete all four quests, uncover the **truth behind Percival’s disappearance**, and restore balance to the data kingdom?
 
-The first task awaits... 🏁
+The first task awaits in the [Findability folder](https://github.com/mattiatonelli/dbt-workshop/tree/main/1_Findability)... 🏁
 
 ```sql
 WITH citizen_quests AS (
@@ -36,10 +36,10 @@ WITH citizen_quests AS (
         c.height_centimeters,
         COUNT(q.quest_id)               AS total_quests
 
-    FROM dbtworkshop.dbt_mtonelli.raw_citizens AS c
+    FROM ws_ejvind.raw.citizens AS c
 
     LEFT JOIN
-        dbtworkshop.dbt_mtonelli.raw_quests AS q ON
+        ws_ejvind.raw.quests AS q ON
             c.citizen_id = q.citizen_id
 
     GROUP BY
@@ -58,9 +58,9 @@ citizen_items AS (
         i.length_centimeters,
         COUNT(i.item_name) AS item_count
 
-    FROM dbtworkshop.dbt_mtonelli.raw_citizens AS c
+    FROM ws_ejvind.raw.citizens AS c
 
-    LEFT JOIN dbtworkshop.dbt_mtonelli.raw_items AS i ON
+    LEFT JOIN ws_ejvind.raw.items AS i ON
         c.citizen_id = i.citizen_id
 
     GROUP BY
@@ -74,16 +74,13 @@ most_used_item AS (
         citizen_id,
         item_name                       AS most_used_item,
         length_centimeters              AS most_used_item_length_cm
-
     FROM (
         SELECT
             citizen_id,
             item_name,
             length_centimeters,
             ROW_NUMBER() OVER (PARTITION BY citizen_id ORDER BY COUNT(item_name) DESC) AS rank
-
         FROM citizen_items
-
         GROUP BY
             citizen_id,
             item_name,
