@@ -6,4 +6,4 @@ SELECT
     rarity,
     ROUND(length_centimeters * 2.54)        AS length_centimeters
 
-FROM {{ source('raw', 'raw_items') }}
+FROM {{ source('raw', 'items') }}

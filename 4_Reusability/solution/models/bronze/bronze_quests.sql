@@ -6,4 +6,4 @@ SELECT
     status,
     {{ format_date('completion_date') }}    AS completion_date  -- Using the macro for date formatting
 
-FROM {{ source('raw', 'raw_quests') }}
+FROM {{ source('raw', 'quests') }}

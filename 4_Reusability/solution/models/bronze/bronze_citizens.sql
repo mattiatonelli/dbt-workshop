@@ -6,4 +6,4 @@ SELECT
     {{ format_date('date_of_birth') }}          AS date_of_birth,  -- Using the macro for date formatting
     ROUND(height_centimeters * 30.48)           AS height_centimeters
 
-FROM {{ source('raw', 'raw_citizens') }}
+FROM {{ source('raw', 'citizens') }}

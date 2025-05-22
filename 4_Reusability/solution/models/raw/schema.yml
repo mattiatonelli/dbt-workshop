@@ -2,10 +2,10 @@ version: 2
 
 sources:
   - name: raw
-    database: dbtworkshop
-    schema: dbt_mtonelli # <-- remember to change to the schema name where your raw data tables live
+    database: ws_ejvind
+    schema: raw # <-- remember to change to the schema name where your raw data tables live
     tables:
-      - name: raw_citizens
+      - name: citizens
         description: "Raw data of citizens in the kingdom"
         freshness:
           warn_after: { count: 1, period: day }
@@ -25,7 +25,7 @@ sources:
           - name: uploaded_timestamp
             description: "Timestamp when the data was uploaded"
 
-      - name: raw_items
+      - name: items
         description: "Raw data of magical items used in quests"
         freshness:
           warn_after: { count: 1, period: day }
@@ -47,7 +47,7 @@ sources:
           - name: uploaded_timestamp
             description: "Timestamp when the data was uploaded"
 
-      - name: raw_quests
+      - name: quests
         description: "Raw data of quests undertaken by citizens"
         freshness:
           warn_after: { count: 1, period: day }
