@@ -2,10 +2,10 @@ version: 2
 
 sources:
   - name: raw
-    database: dbtworkshop
-    schema: dbt_mtonelli # <-- remember to change to the schema name where your raw data tables live
+    database: ws_ejvind
+    schema: raw # <-- the schema name where your raw data tables live
     tables:
-      - name: raw_citizens
+      - name: citizens
         description: "Raw data of citizens in the kingdom"
         columns:
           - name: citizen_id
@@ -19,7 +19,7 @@ sources:
           - name: date_of_birth
             description: "Date of birth of the citizen"
 
-      - name: raw_items
+      - name: items
         description: "Raw data of magical items used in quests"
         columns:
           - name: item_id
@@ -35,7 +35,7 @@ sources:
           - name: height_centimeters
             description: "Height of the item in centimeters"
 
-      - name: raw_quests
+      - name: quests
         description: "Raw data of quests undertaken by citizens"
         columns:
           - name: quest_id

@@ -9,12 +9,12 @@ version: 2
 
 sources:
   - name: raw
-    database: dbtworkshop
-    schema: dbt_mtonelli # <-- remember to change to the schema name where your raw data tables live
+    database: ws_ejvind
+    schema: raw # <-- the schema name where your raw data tables live
     tables:
-      - name: raw_citizens
-      - name: raw_items
-      - name: raw_quests
+      - name: citizens
+      - name: items
+      - name: quests
 ```
 
 Then, reference these sources in your **bronze** models (`bronze_citizens`, `bronze_quests`, `bronze_items`). See examples below:
@@ -27,7 +27,7 @@ select
     race,
     to_char(to_date(date_of_birth, 'DD/MM/YYYY'), 'YYYY-MM-DD') as date_of_birth,
     round(height_centimeters * 30.48) as height_centimeters
-from {{ source('raw', 'raw_citizens') }}
+from {{ source('raw', 'citizens') }}
 ```
 
 ## 2. Apply the ISO 8601 date format and metric system
@@ -37,7 +37,7 @@ Standardize dates to the ISO 8601 format (yyyy-mm-dd) and convert measurements f
 Then, to apply the changes run:
 
 ```bash
-dbt run --select bronze_citizens bronze_items bronze_quests silver_citizens silver_items silver_quests gold_metrics gold_winners
+dbt run --select bronze_citizens bronze_items bronze_quests silver_citizens silver_quests gold_winners
 ```
 
 ## 3. Add dbt Tests for Commonly Tested Columns

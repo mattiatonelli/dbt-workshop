@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: bronze_citizens
+    description: Raw citizens data
+    columns:
+      - name: citizen_id
+        description: Unique ID of the citizen
+        tests: # <-- add the below tests
+          - not_null
+          - unique
+      - name: first_name
+        description: First name of the citizen
+      - name: last_name
+        description: Last name of the citizen
+      - name: race
+        description: Race or species of the citizen
+      - name: date_of_birth
+        description: Date of birth in string format
+      - name: height_centimeters
+        description: Height of the citizen in centimeters
+      - name: uploaded_timestamp
+        description: "Timestamp when the data was uploaded"
+
+  - name: bronze_quests
+    description: Raw quests data
+    columns:
+      - name: quest_id
+        description: Unique ID of the quest
+      - name: citizen_id
+        description: ID of the citizen who undertook the quest
+      - name: quest_name
+        description: Name of the quest
+      - name: reward
+        description: Reward points for completing the quest
+      - name: status
+        description: Status of the quest (e.g., completed, failed)
+      - name: completion_date
+        description: Date the quest was completed
+      - name: uploaded_timestamp
+        description: "Timestamp when the data was uploaded"
+
+  - name: bronze_items
+    description: Raw items data
+    columns:
+      - name: item_id
+        description: Unique ID of the item
+      - name: citizen_id
+        description: ID of the citizen who owns the item
+      - name: item_name
+        description: Name of the item
+      - name: item_type
+        description: Type or category of the item
+      - name: rarity
+        description: Rarity level of the item
+      - name: length_centimeters
+        description: Length of the item in centimeters
+      - name: uploaded_timestamp
+        description: "Timestamp when the data was uploaded"
